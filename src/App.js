@@ -1,17 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react-dom';
+import Home from "./components/Home";
+import Logging from "./components/Logging";
+import Register from "./components/Register";
+import {Route, HashRouter as Router, Switch} from "react-router-dom";
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Siema Eniu!!!
-        </p>
-      </header>
+        <Router>
+            <Switch>
+                <Route exact path='/' render={Home} />
+                <Route exact path='/logging' render={Logging} />
+                <Route exact path='/register' render={Register} />
+            </Switch>
+        </Router>
     </div>
   );
-}
+};
 
 export default App;
