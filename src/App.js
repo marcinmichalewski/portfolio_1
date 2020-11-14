@@ -1,22 +1,25 @@
-import React from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import '../src/scss/main.scss';
+import { HashRouter, Route, Switch, } from 'react-router-dom';
 import Home from "./components/Home";
-import Logging from "./components/Logging";
+import Login from "./components/Login";
 import Register from "./components/Register";
-import {Route, HashRouter as Router, Switch} from "react-router-dom";
 
-
-const App = () => {
+function App() {
   return (
-    <div className="App">
-        <Router>
-            <Switch>
-                <Route exact path='/' render={Home} />
-                <Route exact path='/logging' render={Logging} />
-                <Route exact path='/register' render={Register} />
-            </Switch>
-        </Router>
-    </div>
+      <HashRouter>
+        <>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/logowanie' component={Login} />
+            <Route exact path='/rejestrowanie' component={Register} />
+          </Switch>
+        </>
+      </HashRouter>
   );
-};
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 export default App;
